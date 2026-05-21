@@ -26,10 +26,11 @@ export const Login = ({ onLogin }: ILoginProps) => {
     setLoading(true);
     setError("")
 
-    //console.log(import.meta.env.VITE_API_URL);
+    console.log(import.meta.env.VITE_API_URL);
 
     try{
-        const response = await fetch('/login', {
+        const url = `${import.meta.env.VITE_API_URL}/login`
+        const response = await fetch(url, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({username: username.trim()}),
